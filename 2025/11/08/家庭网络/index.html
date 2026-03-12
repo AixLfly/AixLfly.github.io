@@ -13,7 +13,7 @@
   
   <title>
     
-      archive_a: 2026 
+      家庭网络 
       
       
       |
@@ -108,57 +108,161 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2026</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">家庭网络</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          2025-11-08 11:05:45
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="Tags"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E7%BD%91%E7%BB%9C/" title="网络">
+                    #网络
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        </span>
+
+	
+<pre><code>	在运营商购买宽带服务，接入光猫，一般来说这样就可以上网了，但仅限于有线连接，所以还会接入一台路由器，使用网线与路由器的 &quot;wan&quot; 口连接，光猫通过ppoe拨号获取运营商分配的公网ip，路由器获取到光猫分配的内网ip （仅是举例，实则两个获取到的都是内网ip，运营商级NAT）
+
+	对于网关来说，谁拨号获取到ip，谁就是网关，在这里光猫就是网关，而路由器则是NAT
+
+	当一台主机要连接到网络，插上网线后，DHCP协议开始工作，电脑的DHCP客户端发起一个DHCP请求，用来获取IP，请求会被层层封装
+	
+以 &quot;TCP/IP四层模型&quot; 为例 	应用层 传输层 网络层 网路接口层
+</code></pre>
+<h3 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">数据来到 &#x27;传输层&#x27;，传输层指定 DHCP 请求通过(?)协议，发往(?)端口</span><br><span class="line">DHCP规定 客户端默认使用 68号UDP端口 服务端默认使用 67号UDP端口  源端口 68 --&gt;目标端口 67</span><br><span class="line"></span><br><span class="line">数据来到 &#x27;网络层&#x27;，网络层的功能本来是封装IP，但这时候主机还在请求IP，但是它不知道谁是DHCP服务器，不管了，数据包发给所有设备</span><br><span class="line">	目标IP是一个广播IP（255.255.255.255）源IP（0.0.0.0 未指定IP）    接受设备知道是谁发送的</span><br><span class="line">		</span><br><span class="line">数据来到 &#x27;网络接口层&#x27;，此层的功能是封装网卡的MAC地址，源MAC地址（网卡的物理地址括弧也称之为MAC地址）目标MAC是（ff.ff.ff.ff.ff.ff 广播MAC地址，因为不知道发给谁）</span><br></pre></td></tr></table></figure>
+
+<p>层层封装的数据包会从电脑的网卡接口顺着网线来到 <span style="color:yellow">路由器的LAN1</span> 普通的家用路由器只能解析 <span style="color:yellow">网络接口层</span> 的设备，也就是说除了MAC地址 ，<span style="color:yellow">IP、端口</span> 都看不懂<br>	路由器内部有一个 <span style="color:yellow">MAC地址映射表</span> 记录每个接口对应的 MAC 地址，用来转发数据<br>		从 LAN1 接收到数据后，把源MAC地址保存到映射表，查看目标MAC是一个广播MAC地址，会给每个连接的接口发送一份（主机网口，路由器WAN口）<br>			当主机收到数据包根据网络模型解封装，网络接口层看到是广播MAC地址，接受<br>				网络层看到目标是广播IP地址，接受<br>					传输层看到是UDP方式 从主机的68号端口发往路由器的67端口，但电脑没必要开67端口，丢弃</p>
+<p>可能传输层会觉得混淆，正常情况是 ‘主机68’ -&gt; ‘路由器DHCP67’ ，为什么后面要加一句<span style="color:yellow">“电脑没必要开…….“</span>是因为路由器LAN口看到是广播MAC地址干脆把连接口都发一遍（它不知道要发给路由器所以也给主机发了一份）</p>
+<p>&lt;———以上是将数据包发给主机———-&gt;</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">同样的数据来到路由器，网络接口层和网络层会接受，传输层看到目标是UDP67端口，数据包交给DHCP服务，收到后会从IP池中分配一个未被占用的IP地址，还要子网掩码、网关、DNS、租期等</span><br><span class="line">封装好的数据包再发回去，主机就的网络就配置完成了，在租约的 1/2 后再次发起DHCP请求续约IP地址，若失败会再次 1/4 1/8 的时候再次尝试发起DHCP请求</span><br><span class="line">	如果还失败了，就说明路由器的DHCP死了，租约到期之后自动释放IP，重新发给获取IP的广播请求</span><br><span class="line">		但是因为DHCP死了，在请求多次没反应，主机会自动分配一个全球统一的网段  &#x27;169.254.x.x&#x27;,确保和局域网的其他设备通信</span><br><span class="line">			如果电脑获取到 &#x27;169.254&#x27; 开头的IP，说明网络拓扑中没有提供DHCP服务的设备</span><br><span class="line">				------------------------------------------------------------------------------------------------------------------------------------</span><br><span class="line">电脑关机不需要发送续约请求，租约到期后路由器的DHCP服务会放回IP池，等待下一位有缘机，公共场所的WIFI DHCP租期会比较短，防止地址池被沾满</span><br></pre></td></tr></table></figure>
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2025/11/03/BUUCTF/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              2025-11-08 11:05:45
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="Tags"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E7%BD%91%E7%BB%9C/" title="网络">
+                        #网络
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2026/03/11/hello-world/" target="_self">
+                <span>Next</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="Hello World">
-        <div class="time-m-d">03-11</div>
-        <div class="title">
-          <a href="/2026/03/11/hello-world/">
-            <span>Hello World</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2025</span>
-          </h2>
-        </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
       
-      <div class="post-item" title="家庭网络">
-        <div class="time-m-d">11-08</div>
-        <div class="title">
-          <a href="/2025/11/08/%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C/">
-            <span>家庭网络</span>
-          </a>
-        </div>
-      </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B"><span class="toc-text">过程</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="BUUCTF">
-        <div class="time-m-d">11-03</div>
-        <div class="title">
-          <a href="/2025/11/03/BUUCTF/">
-            <span>BUUCTF</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -416,6 +520,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C + '&url=' + http%3A%2F%2Fexample.com%2F2025%2F11%2F08%2F%25E5%25AE%25B6%25E5%25BA%25AD%25E7%25BD%2591%25E7%25BB%259C%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2025/11/08/%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
