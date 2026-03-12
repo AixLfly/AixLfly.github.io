@@ -13,11 +13,11 @@
     L2Dwidget.init({
       model: {
         jsonPath: '/destroy/model.json',
-        scale: 1.3
+        scale: 1.1
       },
       display: {
         width: 350,
-        height: 700,
+        height: 570,
         position: 'left',
         hOffset: -25,
         vOffset: -110
