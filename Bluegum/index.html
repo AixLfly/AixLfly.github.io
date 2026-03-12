@@ -152,12 +152,109 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2026-03-12 14:46:12
+          2026-03-12 15:33:37
         </span>
         
       </div>
       <div class="markdown-body">
-        
+        <!-- 精致左头像右信息卡片 - 在头像下方添加名字 -->
+<div class="friend-card" style="background-image: url('https://picui.ogmua.cn/s1/2026/03/12/69b2662e6b0d1.webp');">
+  <div class="friend-content-wrapper">
+    <div class="avatar-column">
+      <img src="https://q1.qlogo.cn/g?b=qq&nk=263180358&s=100" alt="朋友头像" class="friend-avatar">
+      <div class="friend-name">小蛋</div> <!-- ← 这里修改为想要显示的名字 -->
+    </div>
+    <div class="friend-info-box">
+      <ul class="friend-info">
+        <li>已经活了：18年</li>
+        <li>性别：？</li>
+        <li>住址：荷兰</li>
+        <li>爱好：睡觉</li>
+        <li>个签：大事不妙雷庭猪</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<style>
+.friend-card {
+  display: flex;
+  justify-content: flex-start;
+  width: 460px;
+  border-radius: 12px;
+  padding: 8px;
+  font-family: sans-serif;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  margin: 12px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.friend-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.35);
+  z-index: 0;
+  border-radius: 12px;
+}
+
+.friend-content-wrapper {
+  display: flex;
+  align-items: flex-start;
+  z-index: 1;
+  margin-left: 5%;
+}
+
+.avatar-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* 使名字在头像下方居中 */
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
+.friend-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  min-width: 90px;
+  min-height: 90px;
+  max-width: 90px;
+  max-height: 90px;
+}
+
+.friend-name {
+  margin-top: 6px;             /* 头像与名字之间的间距，可调整 4px–10px */
+  font-size: 13px;             /* 比信息文字稍大，更突出 */
+  font-weight: 600;            /* 加粗以增加辨识度 */
+  text-align: center;
+  line-height: 1.2;
+  max-width: 90px;             /* 限制宽度，避免过长换行影响对齐 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;         /* 单行显示，过长自动省略 */
+}
+
+.friend-info-box {
+  text-align: left;
+}
+
+.friend-info {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 4px 0;
+  font-size: 11px;
+}
+
+.friend-info li {
+  margin: 1px 0;
+}
+</style>
       </div>
       
         <div class="prev-or-next">
@@ -167,7 +264,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2026-03-12 14:46:12
+              2026-03-12 15:33:37
             </span>
             
           </div>
