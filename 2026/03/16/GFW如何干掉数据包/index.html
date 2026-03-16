@@ -13,7 +13,7 @@
   
   <title>
     
-      archive_a: 2026/3 
+      GFW如何干掉数据包 
       
       
       |
@@ -108,75 +108,264 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2026</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">GFW如何干掉数据包</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          2026-03-16 10:31:12
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <h3 id="访问被拦截"><a href="#访问被拦截" class="headerlink" title="访问被拦截"></a><span style="color:pink">访问被拦截</span></h3><p><code>在国内互联网输入 google.com 无法访问，是因为GFW干掉了数据包</code></p>
+<table>
+<thead>
+<tr>
+<th>源 MAC</th>
+<th>目标 MAC</th>
+<th>源 IP</th>
+<th>目标 IP</th>
+<th>源端口</th>
+<th>目标端口</th>
+<th>请求内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00:1A:2B:3C:4D:5E</td>
+<td>00:5F:6A:7B:8C:9D</td>
+<td>192.168.1.100</td>
+<td>8.8.8.8</td>
+<td>49152</td>
+<td>53</td>
+<td>告诉我Google的IP地址</td>
+</tr>
+</tbody></table>
+<p><code>从物理网卡出去，在国内互联网中各路由器辗转，最后到出国的接口，GFW是五层设备解析到应用层检查流量的内容，它知道你要DNS解析，获得哪个网站的IP地址，这时候就可以干掉数据包，假设它没有对流量进行检查</code></p>
+<p><code>数据包在国际互联网中各路由器辗转，最终达到DNS服务器，得到IP地址时回复一个数据包</code></p>
+<table>
+<thead>
+<tr>
+<th>源 MAC</th>
+<th>目标 MAC</th>
+<th>源 IP</th>
+<th>目标 IP</th>
+<th>源端口</th>
+<th>目标端口</th>
+<th>请求内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00:5F:6A:7B:8C:9D</td>
+<td>00:1A:2B:3C:4D:5E</td>
+<td>8.8.8.8</td>
+<td>192.168.1.100</td>
+<td>53</td>
+<td>49152</td>
+<td>Google的IP地址9.9.9.9</td>
+</tr>
+</tbody></table>
+<h3 id="DNS污染、劫持"><a href="#DNS污染、劫持" class="headerlink" title="DNS污染、劫持"></a><span style="color:pink">DNS污染、劫持</span></h3><p><code>数据包经过防火墙，检测到你访问国外网站，篡改数据包里的内容，又在国内互联网上辗转，最后到浏览器，看到 Google 的IP地址时 9.6.6.6 ，但是谷歌没对应IP地址的服务器，无法访问</code></p>
+<h3 id="绕过被拦截00x1"><a href="#绕过被拦截00x1" class="headerlink" title="绕过被拦截00x1"></a><span style="color:pink">绕过被拦截00x1</span></h3><p><code>访问网站并不是直接发送DNS请求，检查本地的host文件，假设添加了对应的映射关系，实现不发送DNS请求就得到IP地址，应用层的https协议基于TCP，发送https的请求先使用TCP的方式和服务器建立连接</code></p>
+<table>
+<thead>
+<tr>
+<th>源 MAC</th>
+<th>目标 MAC</th>
+<th>源 IP</th>
+<th>目标 IP</th>
+<th>源端口</th>
+<th>目标端口</th>
+<th>请求内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00:1A:2B:3C:4D:5E</td>
+<td>00:5F:6A:7B:8C:9D</td>
+<td>192.168.1.100</td>
+<td>Google IP地址</td>
+<td>49152</td>
+<td>443</td>
+<td>我要和你连接</td>
+</tr>
+</tbody></table>
+<p><code>从物理网卡发出去，在国内互联网辗转，主机不在国内又经过GFW，它解析到网络层就知道你要访问的IP地址，发现对应IP地址在黑名单里，干掉了数据包</code></p>
+<h3 id="TCP重置攻击"><a href="#TCP重置攻击" class="headerlink" title="TCP重置攻击"></a><span style="color:pink">TCP重置攻击</span></h3><p>伪装成服务器返回一个数据包，篡改响应内容，从而终止TCP连接</p>
+<table>
+<thead>
+<tr>
+<th>源 MAC</th>
+<th>目标 MAC</th>
+<th>源 IP</th>
+<th>目标 IP</th>
+<th>源端口</th>
+<th>目标端口</th>
+<th>响应内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00:1A:2B:3C:4D:5E</td>
+<td>00:5F:6A:7B:8C:9D</td>
+<td>192.168.1.100</td>
+<td>GFW伪装IP</td>
+<td>49152</td>
+<td>443</td>
+<td>滚</td>
+</tr>
+</tbody></table>
+<h3 id="绕过被拦截00x2"><a href="#绕过被拦截00x2" class="headerlink" title="绕过被拦截00x2"></a><span style="color:pink">绕过被拦截00x2</span></h3><p>谷歌的服务器不止一个IP，假设是 9.9.9.1 经过防火墙发现IP地址不在黑名单，放行，服务器返回响应，成功建立连接</p>
+<table>
+<thead>
+<tr>
+<th>源 MAC</th>
+<th>目标 MAC</th>
+<th>源 IP</th>
+<th>目标 IP</th>
+<th>源端口</th>
+<th>目标端口</th>
+<th>请求内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00:1A:2B:3C:4D:5E</td>
+<td>00:5F:6A:7B:8C:9D</td>
+<td>192.168.1.100</td>
+<td>142.250.190.78</td>
+<td>49152</td>
+<td>443</td>
+<td>把Google首页的数据给我</td>
+</tr>
+</tbody></table>
+<p>虽然是网络层的IP不在黑名单里，但它能解析到应用层，需要Google.com的首页数据，但是域名也存在黑名单，又给数据包干掉了</p>
+<h3 id="绕过被拦截00x3"><a href="#绕过被拦截00x3" class="headerlink" title="绕过被拦截00x3"></a><span style="color:pink">绕过被拦截00x3</span></h3><p>国外vps代替访问网站，假设监听10086端口</p>
+<table>
+<thead>
+<tr>
+<th>源 MAC</th>
+<th>目标 MAC</th>
+<th>源 IP</th>
+<th>目标 IP</th>
+<th>源端口</th>
+<th>目标端口</th>
+<th>请求内容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00:AA:BB:CC:DD:EE</td>
+<td>00:FF:11:22:33:44</td>
+<td>203.0.113.10</td>
+<td>国外vps</td>
+<td>49152</td>
+<td>10086</td>
+<td>帮我访问谷歌</td>
+</tr>
+</tbody></table>
+<p>GFW解析到应用层里的内容是让VPS帮你访问网站，又干掉了，把VPS的IP也加进黑名单里</p>
+<h3 id="归根结底，还是被发现了意图"><a href="#归根结底，还是被发现了意图" class="headerlink" title="归根结底，还是被发现了意图"></a><span style="color:yellow">归根结底，还是被发现了意图</span></h3><p><code>使用VPN对数据进行加密，但是特征十分明显，虽然看不到你具体要干啥，但知道你在建立VPN连接，但它不止翻墙这一个功能也可以用来访问内网，放行</code><br><code>把IP加入监控，当和这台VPS进行大流量的连接，就会干掉连接</code></p>
+<p><code>当然它还会主动探测，向服务器发送请求，只不过前提是翻墙协议存在漏洞</code></p>
+<p><img src="/images/QQ_1750734656216.png" alt="QQ_1750734656216.png"></p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2026/03/13/%E5%93%A6%E5%93%A6%E4%B8%8D%E6%97%A9%E8%AF%B4/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              2026-03-16 10:31:12
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
       
-      <div class="post-item" title="GFW如何干掉数据包">
-        <div class="time-m-d">03-16</div>
-        <div class="title">
-          <a href="/2026/03/16/GFW%E5%A6%82%E4%BD%95%E5%B9%B2%E6%8E%89%E6%95%B0%E6%8D%AE%E5%8C%85/">
-            <span>GFW如何干掉数据包</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="哦哦不早说">
-        <div class="time-m-d">03-13</div>
-        <div class="title">
-          <a href="/2026/03/13/%E5%93%A6%E5%93%A6%E4%B8%8D%E6%97%A9%E8%AF%B4/">
-            <span>哦哦不早说</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="17岁">
-        <div class="time-m-d">03-13</div>
-        <div class="title">
-          <a href="/2026/03/13/17%E5%B2%81/">
-            <span>17岁</span>
-          </a>
-        </div>
-      </div>
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2025</span>
-          </h2>
-        </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
       
-      <div class="post-item" title="家庭网络">
-        <div class="time-m-d">11-08</div>
-        <div class="title">
-          <a href="/2025/11/08/%E5%AE%B6%E5%BA%AD%E7%BD%91%E7%BB%9C/">
-            <span>家庭网络</span>
-          </a>
-        </div>
-      </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BF%E9%97%AE%E8%A2%AB%E6%8B%A6%E6%88%AA"><span class="toc-text">访问被拦截</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNS%E6%B1%A1%E6%9F%93%E3%80%81%E5%8A%AB%E6%8C%81"><span class="toc-text">DNS污染、劫持</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%95%E8%BF%87%E8%A2%AB%E6%8B%A6%E6%88%AA00x1"><span class="toc-text">绕过被拦截00x1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E9%87%8D%E7%BD%AE%E6%94%BB%E5%87%BB"><span class="toc-text">TCP重置攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%95%E8%BF%87%E8%A2%AB%E6%8B%A6%E6%88%AA00x2"><span class="toc-text">绕过被拦截00x2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%95%E8%BF%87%E8%A2%AB%E6%8B%A6%E6%88%AA00x3"><span class="toc-text">绕过被拦截00x3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E6%A0%B9%E7%BB%93%E5%BA%95%EF%BC%8C%E8%BF%98%E6%98%AF%E8%A2%AB%E5%8F%91%E7%8E%B0%E4%BA%86%E6%84%8F%E5%9B%BE"><span class="toc-text">归根结底，还是被发现了意图</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="BUUCTF">
-        <div class="time-m-d">11-03</div>
-        <div class="title">
-          <a href="/2025/11/03/BUUCTF/">
-            <span>BUUCTF</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -442,6 +631,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + GFW%E5%A6%82%E4%BD%95%E5%B9%B2%E6%8E%89%E6%95%B0%E6%8D%AE%E5%8C%85 + '&url=' + http%3A%2F%2Fexample.com%2F2026%2F03%2F16%2FGFW%25E5%25A6%2582%25E4%25BD%2595%25E5%25B9%25B2%25E6%258E%2589%25E6%2595%25B0%25E6%258D%25AE%25E5%258C%2585%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2026/03/16/GFW%E5%A6%82%E4%BD%95%E5%B9%B2%E6%8E%89%E6%95%B0%E6%8D%AE%E5%8C%85/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
