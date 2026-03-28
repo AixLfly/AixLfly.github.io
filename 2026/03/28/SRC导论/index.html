@@ -13,7 +13,7 @@
   
   <title>
     
-      Archives 
+      SRC导论 
       
       
       |
@@ -108,41 +108,128 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2026</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">SRC导论</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          2026-03-28 10:34:20
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <p>安全响应响应中心，接受用户发现的产品漏洞<br>国内的src有多种，公益漏洞报告平台（edu、盒子）只要是国内站就收<br>企业赏金，仅仅收自己企业的漏洞（360、蚂蚁）</p>
+<p>企业src直接交，但是<span style="color:yellow">公益src</span>全国这么多资产，所以到漏洞的站必须查到所属企业，找不到就白挖<br>所以说要截个图证明一下，icp查询和爱企查，分别是查询备案、主办单位产权和联系方式，如果确实不确定会不会被收录可以问ai啥的，否则白费时间，测还会有风险</p>
+<p>访问量少无权重小站交漏洞盒子，有权重站点较知名但是没开企业src交补天，教育平台不多说了edusrc，通杀或者重点单位，三网或中央交CNVD，公益src赚钱360漏洞云收edusrc，但只能交一个平台<br>CNVD注册资金大于5000w，再就是它的一家企业不可能单个产品，用小蓝本查，下图全是泛微产品</p>
+<p><img src="/images/Pasted%20image%2020260327161631.png" alt="Pasted image 20260327161631.png"></p>
+<p>或者是爱企查的知识产权</p>
+<p><img src="/images/Pasted%20image%2020260327162013.png" alt="Pasted image 20260327162013.png"></p>
+<p>网络测绘平台</p>
+<p><img src="/images/Pasted%20image%2020260327162606.png" alt="Pasted image 20260327162606.png"></p>
+<h3 id="公益src、企业src规则"><a href="#公益src、企业src规则" class="headerlink" title="公益src、企业src规则"></a>公益src、企业src规则</h3><p>公益src就是未授权，上传shell动后台数据，是可以报警的，企业src注册就是有授权的，但要知道平台的规则，比如禁止行为什么，不收什么漏洞，总之测可以但搞不要破坏</p>
+<h4 id="循序渐进"><a href="#循序渐进" class="headerlink" title="循序渐进"></a>循序渐进</h4><p>公益src不值钱但是应该从它开始，少异想天开，掌握之后去尝试edusrc，再到企业或cnvd</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2026/03/13/%E5%93%A6%E5%93%A6%E4%B8%8D%E6%97%A9%E8%AF%B4/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              2026-03-28 10:34:20
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
       
-      <div class="post-item" title="SRC导论">
-        <div class="time-m-d">03-28</div>
-        <div class="title">
-          <a href="/2026/03/28/SRC%E5%AF%BC%E8%AE%BA/">
-            <span>SRC导论</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="哦哦不早说">
-        <div class="time-m-d">03-13</div>
-        <div class="title">
-          <a href="/2026/03/13/%E5%93%A6%E5%93%A6%E4%B8%8D%E6%97%A9%E8%AF%B4/">
-            <span>哦哦不早说</span>
-          </a>
-        </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AC%E7%9B%8Asrc%E3%80%81%E4%BC%81%E4%B8%9Asrc%E8%A7%84%E5%88%99"><span class="toc-text">公益src、企业src规则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%AA%E5%BA%8F%E6%B8%90%E8%BF%9B"><span class="toc-text">循序渐进</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -408,6 +495,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + SRC%E5%AF%BC%E8%AE%BA + '&url=' + http%3A%2F%2Fexample.com%2F2026%2F03%2F28%2FSRC%25E5%25AF%25BC%25E8%25AE%25BA%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2026/03/28/SRC%E5%AF%BC%E8%AE%BA/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
