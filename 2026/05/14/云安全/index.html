@@ -13,7 +13,7 @@
   
   <title>
     
-      archive_a: 2026/4 
+      云安全 
       
       
       |
@@ -104,59 +104,132 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2026</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">云安全</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          2026-05-14 14:12:39
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <h3 id="对象存储服务"><a href="#对象存储服务" class="headerlink" title="对象存储服务"></a>对象存储服务</h3><p>1、说白了就是互联网硬盘+权限解析，存储桶（Bucket）就一个盘，里面可以创建文件夹文件夹可以放文件，可以理解为电脑<br>2、存储桶节省了服务器的资源并且安全，很多时候文件直接上传到存储桶内，因为它不会解析任何（除.html XSS）文件，访问什么下载什么<br>3、当然有一个但出现漏洞非常严重，比如AccessKey泄露，通过工具接管存储桶</p>
+<p>4、每个家互联网大厂的对象存储服务（存储桶）名字不一样<br>阿里云OSS<br>百度云BOS<br>腾讯云 COS<br>亚马逊S3</p>
+<h3 id="AK-SK"><a href="#AK-SK" class="headerlink" title="AK&#x2F;SK"></a>AK&#x2F;SK</h3><p>这俩可以理解成拿shell了，接管了其账号下所有的服务，如果是主账号偷走 ak&#x2F;sk 顺便也接管了所有子账号</p>
+<p><img src="/images/Pasted%20image%2020260513145822_1778738480886.png" alt="Pasted image 20260513145822.png"></p>
+<h3 id="STS"><a href="#STS" class="headerlink" title="STS"></a>STS</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">因为AK/SK泄露风险极高，所以STS出现了，功能上与ak/sk相同区别在于它是临时的，时间一过就不能用了</span><br></pre></td></tr></table></figure>
+
+<h3 id="RAM-用户"><a href="#RAM-用户" class="headerlink" title="RAM 用户"></a>RAM 用户</h3><p>主账号创建的子账号，主账号可以给 RAM 分配任务，RAM1 管理 OSS、RAM2 管理云主机权限细分给每个人，后续出现问题也方便定位</p>
+<h3 id="存储桶权限相关"><a href="#存储桶权限相关" class="headerlink" title="存储桶权限相关"></a>存储桶权限相关</h3><p>单创建一个桶只能通过控制台访问，别人无法直接访问所以需要开放权限<br>权限控制<br>默认权限：阻止公共访问，开启后优先级为最高，后面权限再怎么细分也没用<br>读写权限：读权限访问可以下载，写权限可以向存储桶里上传文件，文件名相同可以覆盖文件原文件<br>Bucket 授权策略：细分文件权限，文件夹 a 可访问，文件夹 b 不可访问，文件夹 c 可任意文件上传等</p>
+<p>当关闭阻止公共访问依然无法直接访问，还需修改读写权限，理解为 (阻公访大门，读写中门，授策小门)<br>授权策略的优先级高于读写权限，即使没开读写权限但 a 文件夹可访问，那它就可以访问</p>
+<p><img src="/images/Pasted%20image%2020260514102303.png" alt="Pasted image 20260514102303.png"></p>
+<p><img src="/images/Pasted%20image%2020260514102354.png" alt="Pasted image 20260514102354.png"></p>
+<h3 id="文件上传和覆盖"><a href="#文件上传和覆盖" class="headerlink" title="文件上传和覆盖"></a>文件上传和覆盖</h3><p><img src="/images/Pasted%20image%2020260514110852.png" alt="Pasted image 20260514110852.png"></p>
+<p><img src="/images/Pasted%20image%2020260514111109.png" alt="Pasted image 20260514111109.png"></p>
+<p>the end</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2026/05/13/%E4%B8%8D%E7%9F%A5%E9%81%93%E5%86%99%E5%95%A5%E4%BA%86/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              2026-05-14 14:12:39
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
       
-      <div class="post-item" title="云安全">
-        <div class="time-m-d">05-14</div>
-        <div class="title">
-          <a href="/2026/05/14/%E4%BA%91%E5%AE%89%E5%85%A8/">
-            <span>云安全</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="不知道写啥了">
-        <div class="time-m-d">05-13</div>
-        <div class="title">
-          <a href="/2026/05/13/%E4%B8%8D%E7%9F%A5%E9%81%93%E5%86%99%E5%95%A5%E4%BA%86/">
-            <span>不知道写啥了</span>
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1"><span class="toc-text">对象存储服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AK-SK"><span class="toc-text">AK&#x2F;SK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STS"><span class="toc-text">STS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RAM-%E7%94%A8%E6%88%B7"><span class="toc-text">RAM 用户</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E6%A1%B6%E6%9D%83%E9%99%90%E7%9B%B8%E5%85%B3"><span class="toc-text">存储桶权限相关</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%92%8C%E8%A6%86%E7%9B%96"><span class="toc-text">文件上传和覆盖</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="如何使用域名邮箱装逼">
-        <div class="time-m-d">04-22</div>
-        <div class="title">
-          <a href="/2026/04/22/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1%E8%A3%85%E9%80%BC/">
-            <span>如何使用域名邮箱装逼</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="SRC导论">
-        <div class="time-m-d">03-28</div>
-        <div class="title">
-          <a href="/2026/03/28/SRC%E5%AF%BC%E8%AE%BA/">
-            <span>SRC导论</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -422,6 +495,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E4%BA%91%E5%AE%89%E5%85%A8 + '&url=' + http%3A%2F%2Fexample.com%2F2026%2F05%2F14%2F%25E4%25BA%2591%25E5%25AE%2589%25E5%2585%25A8%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2026/05/14/%E4%BA%91%E5%AE%89%E5%85%A8/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
