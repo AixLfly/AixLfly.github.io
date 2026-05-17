@@ -13,6 +13,11 @@
   
   <title>
     
+      OWASP top10 
+      
+      
+      |
+    
      你好，陌生人
   </title>
 
@@ -144,26 +149,84 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title"></div>
+      <div class="post-title">OWASP top10</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2026-05-15 18:12:14
+          2026-05-17 19:12:32
         </span>
         
       </div>
       <div class="markdown-body">
-        
+        <h3 id="Top-1-干不该干的事"><a href="#Top-1-干不该干的事" class="headerlink" title="Top 1 干不该干的事"></a>Top 1 干不该干的事</h3><ul>
+<li>访问控制崩溃</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;访问控制&quot; 本质是系统决定谁可以访问 页面/操作/资源 应确保用户在授权范围内行为</span><br></pre></td></tr></table></figure>
+
+<h3 id="Top2-看到了秘密"><a href="#Top2-看到了秘密" class="headerlink" title="Top2 看到了秘密"></a>Top2 看到了秘密</h3><ul>
+<li>加密失败</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;加密失败&quot; 是在数据加密、储存、传输、加密算法等方面存在缺陷，导致敏感数据被读取或篡改</span><br></pre></td></tr></table></figure>
+
+<h3 id="Top3-谁的服务器？"><a href="#Top3-谁的服务器？" class="headerlink" title="Top3 谁的服务器？"></a>Top3 谁的服务器？</h3><ul>
+<li>投入</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">web后端对用户输入的请求合法性没有判断或过滤不严格，从而执行非法语句、命令，得到数据信息</span><br></pre></td></tr></table></figure>
+
+<p>标题</p>
+<p>客户端 -&gt; 防火墙 -&gt; Web -&gt; 服务器</p>
+<h3 id="Top4-南辕北习"><a href="#Top4-南辕北习" class="headerlink" title="Top4 南辕北习"></a>Top4 南辕北习</h3><ul>
+<li>不安全的设计</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开发场景，身份验证、访问控制、业务逻辑没有进行安全的设计，是系统本身的设计缺陷，即使代码层面完全正确，也可能导致安全问题</span><br></pre></td></tr></table></figure>
+
+<p>标题</p>
+<p>应用支付接口，把用户id直接放在前端，没有验证当前登录用户&#x3D;&#x3D;支付目标用户<br>从前台格式化的任何用户id、金额、支付对象都属于不安全的设计，搞不了系统就搞业务</p>
+<h3 id="Top5-敞开大门"><a href="#Top5-敞开大门" class="headerlink" title="Top5 敞开大门"></a>Top5 敞开大门</h3><ul>
+<li>安全配置错误</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">即使已经更到新版本，但不当的配置使得容易受到攻击</span><br></pre></td></tr></table></figure>
+
+<h3 id="Top6-好言难劝要死的鬼"><a href="#Top6-好言难劝要死的鬼" class="headerlink" title="Top6 好言难劝要死的鬼"></a>Top6 好言难劝要死的鬼</h3><ul>
+<li>易受攻击和过时的组件</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">软件存在漏洞、不受支持或过时，包括操作系统，web中间件，所有的组件</span><br></pre></td></tr></table></figure>
+
+<h3 id="Top7-你是谁？"><a href="#Top7-你是谁？" class="headerlink" title="Top7 你是谁？"></a>Top7 你是谁？</h3><ul>
+<li>认证崩溃</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">身份验证和会话构成了web程序的核心，在便捷和安全取一个折中的多重身份认证，如输入密码后验证码或扫脸</span><br></pre></td></tr></table></figure>
+
+<h3 id="Top8-不好，这代码有毒"><a href="#Top8-不好，这代码有毒" class="headerlink" title="Top8 不好，这代码有毒"></a>Top8 不好，这代码有毒</h3><ul>
+<li>软件和数据缺陷故障</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">保障程序不受到恶意修改，在传输过程中可能会被篡改或丢失数据</span><br></pre></td></tr></table></figure>
+
+<h3 id="Top9-我被揍了？"><a href="#Top9-我被揍了？" class="headerlink" title="Top9 我被揍了？"></a>Top9 我被揍了？</h3><ul>
+<li>安全日志记录和故障监控</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">日志不记、监控不查、告警不起，攻击者在你系统里散步</span><br></pre></td></tr></table></figure>
+
+<h3 id="Top10-跳板"><a href="#Top10-跳板" class="headerlink" title="Top10 跳板"></a>Top10 跳板</h3><ul>
+<li>服务器端请求格式 (SSRF)</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">应用程序允许攻击者控制或部分控制服务器要发起的请求的目标 URL 或资源</span><br></pre></td></tr></table></figure>
+
       </div>
       
         <div class="prev-or-next">
           <div class="post-foot-next">
             
+              <a href="/2026/05/14/%E4%BA%91%E5%AE%89%E5%85%A8/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2026-05-15 18:12:14
+              2026-05-17 19:12:32
             </span>
             
           </div>
@@ -174,6 +237,23 @@
       
     </div>
     
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Top-1-%E5%B9%B2%E4%B8%8D%E8%AF%A5%E5%B9%B2%E7%9A%84%E4%BA%8B"><span class="toc-text">Top 1 干不该干的事</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top2-%E7%9C%8B%E5%88%B0%E4%BA%86%E7%A7%98%E5%AF%86"><span class="toc-text">Top2 看到了秘密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top3-%E8%B0%81%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9F"><span class="toc-text">Top3 谁的服务器？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top4-%E5%8D%97%E8%BE%95%E5%8C%97%E4%B9%A0"><span class="toc-text">Top4 南辕北习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top5-%E6%95%9E%E5%BC%80%E5%A4%A7%E9%97%A8"><span class="toc-text">Top5 敞开大门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top6-%E5%A5%BD%E8%A8%80%E9%9A%BE%E5%8A%9D%E8%A6%81%E6%AD%BB%E7%9A%84%E9%AC%BC"><span class="toc-text">Top6 好言难劝要死的鬼</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top7-%E4%BD%A0%E6%98%AF%E8%B0%81%EF%BC%9F"><span class="toc-text">Top7 你是谁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top8-%E4%B8%8D%E5%A5%BD%EF%BC%8C%E8%BF%99%E4%BB%A3%E7%A0%81%E6%9C%89%E6%AF%92"><span class="toc-text">Top8 不好，这代码有毒</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top9-%E6%88%91%E8%A2%AB%E6%8F%8D%E4%BA%86%EF%BC%9F"><span class="toc-text">Top9 我被揍了？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top10-%E8%B7%B3%E6%9D%BF"><span class="toc-text">Top10 跳板</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
 
     
       <div class="comments-container">
@@ -461,12 +541,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' +  + '&url=' + http%3A%2F%2Fexample.com%2Fabout%2Findex.html + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + OWASP%20top10 + '&url=' + http%3A%2F%2Fexample.com%2F2026%2F05%2F17%2FOWASP-top10%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/about/index.html" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2026/05/17/OWASP-top10/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
