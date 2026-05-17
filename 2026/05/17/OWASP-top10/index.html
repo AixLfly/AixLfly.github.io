@@ -153,64 +153,69 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-          2026-05-17 19:12:32
+          2026-05-17 19:17:00
         </span>
         
       </div>
       <div class="markdown-body">
-        <h3 id="Top-1-干不该干的事"><a href="#Top-1-干不该干的事" class="headerlink" title="Top 1 干不该干的事"></a>Top 1 干不该干的事</h3><ul>
+        <h3 id="Top-1-干不该干的事"><a href="#Top-1-干不该干的事" class="headerlink" title="Top 1   干不该干的事"></a>Top 1   干不该干的事</h3><ul>
 <li>访问控制崩溃</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;访问控制&quot; 本质是系统决定谁可以访问 页面/操作/资源 应确保用户在授权范围内行为</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;访问控制&quot; 本质是系统决定谁可以访问 页面/操作/资源 应确保用户在授权范围内行为</span><br><span class="line">web网页，普通权限用户可以访问正常页面，但不能访问敏感页面，如后台管理页面，反之就是越权访问</span><br><span class="line">水平越权：通过修改URL参数（如id）对不属于自己的资源操作</span><br><span class="line">垂直越权：普通用户通过漏洞、exp等提升为管理员用户</span><br><span class="line">API访问控制绕过：绕过前端访问控制、API 速率限制绕过（禁止自动化工具，如dirsearch、hydra）</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">owasp25稳居top1</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Top2-看到了秘密"><a href="#Top2-看到了秘密" class="headerlink" title="Top2 看到了秘密"></a>Top2 看到了秘密</h3><ul>
+<h3 id="Top2-看到了秘密"><a href="#Top2-看到了秘密" class="headerlink" title="Top2   看到了秘密"></a>Top2   看到了秘密</h3><ul>
 <li>加密失败</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&quot;加密失败&quot; 是在数据加密、储存、传输、加密算法等方面存在缺陷，导致敏感数据被读取或篡改</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&quot;加密失败&quot; 是在数据加密、储存、传输、加密算法等方面存在缺陷，导致敏感数据被读取或篡改</span><br><span class="line">使用HTTP协议传输，对比https，它的数据没有进行加密，比如登录数据，账户和密码是以明文的形式在数据包中</span><br><span class="line">登录密码，以明文的形式储存在数据库，被破解的加密算法，MD5、SHA-1</span><br><span class="line">允许通过Get方式向后台请求传输敏感协议，接口URL中存在一些可供遍历的敏感参数</span><br><span class="line">密钥硬编码，把账号和密码直接写在程序源码里</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">owasp25在榜top4 ，对比owasp17的<span class="string">&quot;敏感数据泄露&quot;</span>升级为<span class="string">&quot;加密失败&quot;</span></span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Top3-谁的服务器？"><a href="#Top3-谁的服务器？" class="headerlink" title="Top3 谁的服务器？"></a>Top3 谁的服务器？</h3><ul>
-<li>投入</li>
+<h3 id="Top3-谁的服务器？"><a href="#Top3-谁的服务器？" class="headerlink" title="Top3   谁的服务器？"></a>Top3   谁的服务器？</h3><ul>
+<li>注入</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">web后端对用户输入的请求合法性没有判断或过滤不严格，从而执行非法语句、命令，得到数据信息</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">web后端对用户输入的请求合法性没有判断或过滤不严格，从而执行非法语句、命令，得到数据信息</span><br><span class="line">SQL注入：把sql命令插入到web表单或查询页面，从而欺骗解释器</span><br><span class="line">命令注入：不安全的系统调用，用户传入的被当作系统命令，可以在web服务器上执行任意命令（反向shell）</span><br><span class="line">LDAP注入：当应用程序使用LDAP查询用户信息，如登录认证，恶意 LDAP 查询语句，从而绕过身份验证</span><br><span class="line">NoSQL注入：后端将用户输入直接当作对象、JSON 或查询操作符使用，攻击者可以构造恶意 JSON 或键值</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">owasp25在榜top5，owasp17榜首</span></span><br></pre></td></tr></table></figure>
 
-<p>标题</p>
-<p>客户端 -&gt; 防火墙 -&gt; Web -&gt; 服务器</p>
-<h3 id="Top4-南辕北习"><a href="#Top4-南辕北习" class="headerlink" title="Top4 南辕北习"></a>Top4 南辕北习</h3><ul>
+
+<p>Client -&gt; Firewall -&gt; Web -&gt; server</p>
+<h3 id="Top4-南辕北辙"><a href="#Top4-南辕北辙" class="headerlink" title="Top4   南辕北辙"></a>Top4   南辕北辙</h3><ul>
 <li>不安全的设计</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">开发场景，身份验证、访问控制、业务逻辑没有进行安全的设计，是系统本身的设计缺陷，即使代码层面完全正确，也可能导致安全问题</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">开发场景，身份验证、访问控制、业务逻辑没有进行安全的设计，是系统本身的设计缺陷，即使代码层面完全正确，也可能导致安全问题</span><br><span class="line">业务逻辑漏洞，支付漏洞，修改支付价格、接口、仅前端限制，后端没有校验</span><br><span class="line">密码找回，基本都绕不开抓包修改有技术上的缺陷，没有对字符进行限制，也有不安全的设计，如找回之前发送验证码确认，邮箱未绑定时可重置任意账户密码</span><br><span class="line">验证码等，确定你是一个人，防止自动化机器人，暴力脚本破解</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">owasp21新增，owasp25在榜top6</span></span><br></pre></td></tr></table></figure>
 
-<p>标题</p>
-<p>应用支付接口，把用户id直接放在前端，没有验证当前登录用户&#x3D;&#x3D;支付目标用户<br>从前台格式化的任何用户id、金额、支付对象都属于不安全的设计，搞不了系统就搞业务</p>
-<h3 id="Top5-敞开大门"><a href="#Top5-敞开大门" class="headerlink" title="Top5 敞开大门"></a>Top5 敞开大门</h3><ul>
+<blockquote>
+<p>应用支付接口，把用户id直接放在前端，后端没有验证 当前登录用户&#x3D;&#x3D;支付目标用户<br>从前端传入的任何 用户id、金额、支付对象都属于不安全的设计，搞不了系统就搞业务</p>
+</blockquote>
+<h3 id="Top5-敞开大门"><a href="#Top5-敞开大门" class="headerlink" title="Top5   敞开大门"></a>Top5   敞开大门</h3><ul>
 <li>安全配置错误</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">即使已经更到新版本，但不当的配置使得容易受到攻击</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">即使已经更到新版本，但不当的配置使得容易受到攻击</span><br><span class="line">使用默认的用户名密码，弱口令密码</span><br><span class="line">启用了不必要的功能，安装了多余的插件</span><br><span class="line">显示了报错信息，攻击者收集到系统信息</span><br><span class="line">开发者上线调试模式，当程序崩溃，输出隐藏在服务器的内部配置的堆栈跟踪页面，为了提供完整的诊断信息，堆栈跟踪页面会将当前程序运行时加载的所有变量、配置参数等包含，核心凭证是以配置变量的形式加载的会一同显示在堆栈跟踪页，导致访问一个不存在的页面即可获得核心凭证，通俗来说就是把微信付款码发网上了</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">owasp25在榜top2</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Top6-好言难劝要死的鬼"><a href="#Top6-好言难劝要死的鬼" class="headerlink" title="Top6 好言难劝要死的鬼"></a>Top6 好言难劝要死的鬼</h3><ul>
+<h3 id="Top6-好言难劝要死的鬼"><a href="#Top6-好言难劝要死的鬼" class="headerlink" title="Top6   好言难劝要死的鬼"></a>Top6   好言难劝要死的鬼</h3><ul>
 <li>易受攻击和过时的组件</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">软件存在漏洞、不受支持或过时，包括操作系统，web中间件，所有的组件</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">软件存在漏洞、不受支持或过时，包括操作系统，web中间件，所有的组件</span><br><span class="line">可以研究Log4j复现，没啥多说的</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">owasp25都没了，升级为A03软件供应链故障</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Top7-你是谁？"><a href="#Top7-你是谁？" class="headerlink" title="Top7 你是谁？"></a>Top7 你是谁？</h3><ul>
+<h3 id="Top7-你是谁？"><a href="#Top7-你是谁？" class="headerlink" title="Top7   你是谁？"></a>Top7   你是谁？</h3><ul>
 <li>认证崩溃</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">身份验证和会话构成了web程序的核心，在便捷和安全取一个折中的多重身份认证，如输入密码后验证码或扫脸</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">身份验证和会话构成了web程序的核心，在便捷和安全取一个折中的多重身份认证，如输入密码后验证码或扫脸</span><br><span class="line">暴力破解、弱密码、缺少多因素验证、暴露URL的ID、会话id长时间有效</span><br><span class="line">限制尝试，短期cookie，请求api时间限制如验证码，动态验证码</span><br><span class="line">登录框输入账号密码不显示账or密错误，统一显示账密错误、密码强制符号数字大小写、密码不能与邮箱重复</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">依旧top7</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Top8-不好，这代码有毒"><a href="#Top8-不好，这代码有毒" class="headerlink" title="Top8 不好，这代码有毒"></a>Top8 不好，这代码有毒</h3><ul>
-<li>软件和数据缺陷故障</li>
+<h3 id="Top8-不好，这代码有毒"><a href="#Top8-不好，这代码有毒" class="headerlink" title="Top8   不好，这代码有毒"></a>Top8   不好，这代码有毒</h3><ul>
+<li>软件和数据完整性故障</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">保障程序不受到恶意修改，在传输过程中可能会被篡改或丢失数据</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">保障程序不受到恶意修改，在传输过程中可能会被篡改或丢失数据</span><br><span class="line">在网上下载一个文件有一个哈希值，如果你算出来的哈希值与公布的哈希值匹配，软件完整</span><br><span class="line">签名验证、完整性校验、可信仓库、禁用不安全反序列化</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">依旧top8</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Top9-我被揍了？"><a href="#Top9-我被揍了？" class="headerlink" title="Top9 我被揍了？"></a>Top9 我被揍了？</h3><ul>
+<h3 id="Top9-我被揍了？"><a href="#Top9-我被揍了？" class="headerlink" title="Top9   我被揍了？"></a>Top9   我被揍了？</h3><ul>
 <li>安全日志记录和故障监控</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">日志不记、监控不查、告警不起，攻击者在你系统里散步</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">日志不记、监控不查、告警不起，攻击者在你系统里散步</span><br><span class="line">日志信息仅在本地存储，对于实时或准实时的攻击，应用程序无法检测，处理，和警告</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">依旧top9</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="Top10-跳板"><a href="#Top10-跳板" class="headerlink" title="Top10 跳板"></a>Top10 跳板</h3><ul>
-<li>服务器端请求格式 (SSRF)</li>
+<h3 id="Top10-跳板"><a href="#Top10-跳板" class="headerlink" title="Top10   跳板"></a>Top10   跳板</h3><ul>
+<li>服务器端请求伪造 (SSRF)</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">应用程序允许攻击者控制或部分控制服务器要发起的请求的目标 URL 或资源</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">应用程序允许攻击者控制或部分控制服务器要发起的请求的目标 URL 或资源</span><br><span class="line">内网穿透(让服务器访问内部管理系统或数据库)、云元数据攻击(窃取 AWS/Azure/GCP 等云平台的临时安全凭证)、利用服务器 IP 扫描外部端口或对其他服务发起攻击</span><br><span class="line">采用白名单策略（仅允许访问特定域名或 IP）、禁用 HTTP 重定向、限制服务器只能使用特定的协议和端口、使用专门的 URL 解析器来验证用户提供的输入</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">没了</span></span><br></pre></td></tr></table></figure>
+
+
+<pre><code>
+</code></pre>
 
       </div>
       
@@ -226,7 +231,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
-              2026-05-17 19:12:32
+              2026-05-17 19:17:00
             </span>
             
           </div>
@@ -244,7 +249,7 @@
     <div class="title">Contents</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Top-1-%E5%B9%B2%E4%B8%8D%E8%AF%A5%E5%B9%B2%E7%9A%84%E4%BA%8B"><span class="toc-text">Top 1 干不该干的事</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top2-%E7%9C%8B%E5%88%B0%E4%BA%86%E7%A7%98%E5%AF%86"><span class="toc-text">Top2 看到了秘密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top3-%E8%B0%81%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9F"><span class="toc-text">Top3 谁的服务器？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top4-%E5%8D%97%E8%BE%95%E5%8C%97%E4%B9%A0"><span class="toc-text">Top4 南辕北习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top5-%E6%95%9E%E5%BC%80%E5%A4%A7%E9%97%A8"><span class="toc-text">Top5 敞开大门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top6-%E5%A5%BD%E8%A8%80%E9%9A%BE%E5%8A%9D%E8%A6%81%E6%AD%BB%E7%9A%84%E9%AC%BC"><span class="toc-text">Top6 好言难劝要死的鬼</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top7-%E4%BD%A0%E6%98%AF%E8%B0%81%EF%BC%9F"><span class="toc-text">Top7 你是谁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top8-%E4%B8%8D%E5%A5%BD%EF%BC%8C%E8%BF%99%E4%BB%A3%E7%A0%81%E6%9C%89%E6%AF%92"><span class="toc-text">Top8 不好，这代码有毒</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top9-%E6%88%91%E8%A2%AB%E6%8F%8D%E4%BA%86%EF%BC%9F"><span class="toc-text">Top9 我被揍了？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top10-%E8%B7%B3%E6%9D%BF"><span class="toc-text">Top10 跳板</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Top-1-%E5%B9%B2%E4%B8%8D%E8%AF%A5%E5%B9%B2%E7%9A%84%E4%BA%8B"><span class="toc-text">Top 1   干不该干的事</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top2-%E7%9C%8B%E5%88%B0%E4%BA%86%E7%A7%98%E5%AF%86"><span class="toc-text">Top2   看到了秘密</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top3-%E8%B0%81%E7%9A%84%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%9F"><span class="toc-text">Top3   谁的服务器？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top4-%E5%8D%97%E8%BE%95%E5%8C%97%E8%BE%99"><span class="toc-text">Top4   南辕北辙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top5-%E6%95%9E%E5%BC%80%E5%A4%A7%E9%97%A8"><span class="toc-text">Top5   敞开大门</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top6-%E5%A5%BD%E8%A8%80%E9%9A%BE%E5%8A%9D%E8%A6%81%E6%AD%BB%E7%9A%84%E9%AC%BC"><span class="toc-text">Top6   好言难劝要死的鬼</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top7-%E4%BD%A0%E6%98%AF%E8%B0%81%EF%BC%9F"><span class="toc-text">Top7   你是谁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top8-%E4%B8%8D%E5%A5%BD%EF%BC%8C%E8%BF%99%E4%BB%A3%E7%A0%81%E6%9C%89%E6%AF%92"><span class="toc-text">Top8   不好，这代码有毒</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top9-%E6%88%91%E8%A2%AB%E6%8F%8D%E4%BA%86%EF%BC%9F"><span class="toc-text">Top9   我被揍了？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Top10-%E8%B7%B3%E6%9D%BF"><span class="toc-text">Top10   跳板</span></a></li></ol>
       
     </div>
   </div>
