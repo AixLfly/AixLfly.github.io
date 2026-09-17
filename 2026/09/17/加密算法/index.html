@@ -13,7 +13,7 @@
   
   <title>
     
-      archive_a: 2026/3 
+      加密算法 
       
       
       |
@@ -100,122 +100,127 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2026</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="/plugins/mathjax/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="/plugins/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">加密算法</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+          2026-09-17 09:57:33
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <h2 id="00x1-对称式加密"><a href="#00x1-对称式加密" class="headerlink" title="00x1 对称式加密"></a>00x1 对称式加密</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">单一密钥加密，加密解密的密钥是同一个，它是否安全依赖密钥是否安全</span><br><span class="line">	优点在于加解密速度快，缺点在于，通信双方都需要密钥，它怎么安全的交换，并且管理困难</span><br><span class="line">先说安全交换，假如我是间谍，我要跟线人汇报，要对暗号，那我怎么告诉他暗号是什么呢，如果我直接说被敌人听到了，他就可以知道我要干什么了，如果他还想伪装成我，这就扯到数字签名和身份认证了</span><br><span class="line">所以，为了解决如果安全交换密钥，非对称加密出现了</span><br><span class="line"></span><br><span class="line">那为什么管理困难？那如果，我只有一个线人，我只需要记一个暗号，那如果我有1000个线人呢？再或者说，如果其中一个线人暗号泄露了，那还需要重新说一个，再安全的告诉他</span><br></pre></td></tr></table></figure>
+
+<h2 id="00x2-散列算法"><a href="#00x2-散列算法" class="headerlink" title="00x2 散列算法"></a>00x2 散列算法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">哈希函数，它并非是为了解密而出现，验证原始数据是否发生改变，比如hash</span><br><span class="line">	计算下载后的文件和网站公式的MD5是否一致，或者储存加密后的用户密码，为了防止被撞库，还会加盐后再哈希（添加随机字符串或数字）</span><br></pre></td></tr></table></figure>
+
+<h2 id="00x3-非对称式加密"><a href="#00x3-非对称式加密" class="headerlink" title="00x3 非对称式加密"></a>00x3 非对称式加密</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">双密钥加解密，加密跟解密使用的密钥不同，它本身就是安全的</span><br><span class="line">	优点在于非常安全，比如说A与B通信，使用B的公钥加密发给A，A再用私钥解密，私钥又只存在A自己，所以只有A可以解开，缺点在于解解密速度慢，不合适处理大量数据</span><br><span class="line">	对于对称式加密来说速度快安全低，非对称反之，两者结合使用非对称式加密传输密钥，再使用对称式加密传输文件</span><br><span class="line">	A要给B发送文件，A生成对称密钥用于本次对话，A用B的公钥加密SessionKey传递给B，B解密，双方都有SessionKey可以传输文件，为了安全还会生成新的SessionKey</span><br></pre></td></tr></table></figure>
+
+<h2 id="00x4-数字签名"><a href="#00x4-数字签名" class="headerlink" title="00x4 数字签名"></a>00x4 数字签名</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">非对称加密和散列算法用于身份验证和文件或信息完整性检查，通俗讲就是防伪</span><br><span class="line">	计算文件的hash，再使用私钥加密就得到了数字签名，接受方算一下原始文件的hash，再使用公钥解密数字签名得到原始hash，对比是否都一致，则证明了身份认证，不相同的一对密钥无法解开，并且文件完整</span><br></pre></td></tr></table></figure>
+
+<p>当你访问任何一个 HTTPS 协议的网站，那么你怎么确定这个网站不是伪造的，需要一个第三方担保 CA<br>操作系统厂商在系统中预装 CA 的公钥，CA 对证书内容进行<strong>数字签名</strong>就可以被电脑中的 CA 公钥解密<br>网站把身份信息和公钥发给 CA 机构申请签名，CA 用私钥把 A 网站的数据包进行数字签名，（网站身份信息 + 网站公钥 + CA 的数字签名）就是数字证书<br>当有请求网站，会把数字证书发送给用户，CA 公钥解密数字证书就可以验证真伪，用户拿着网站公钥进行通讯</p>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2026/09/08/%E5%88%B6%E4%BD%9CPDF-lnk%E9%A9%AC/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>Prev</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="Update time"></i>
+              2026-09-17 09:57:33
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+          </div>
         </div>
       
-      <div class="post-item" title="加密算法">
-        <div class="time-m-d">09-17</div>
-        <div class="title">
-          <a href="/2026/09/17/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/">
-            <span>加密算法</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="制作PDF lnk马">
-        <div class="time-m-d">09-08</div>
-        <div class="title">
-          <a href="/2026/09/08/%E5%88%B6%E4%BD%9CPDF-lnk%E9%A9%AC/">
-            <span>制作PDF lnk马</span>
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">Contents</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#00x1-%E5%AF%B9%E7%A7%B0%E5%BC%8F%E5%8A%A0%E5%AF%86"><span class="toc-text">00x1 对称式加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#00x2-%E6%95%A3%E5%88%97%E7%AE%97%E6%B3%95"><span class="toc-text">00x2 散列算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#00x3-%E9%9D%9E%E5%AF%B9%E7%A7%B0%E5%BC%8F%E5%8A%A0%E5%AF%86"><span class="toc-text">00x3 非对称式加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#00x4-%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="toc-text">00x4 数字签名</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="Agent">
-        <div class="time-m-d">05-27</div>
-        <div class="title">
-          <a href="/2026/05/27/Agent/">
-            <span>Agent</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="止战之殇">
-        <div class="time-m-d">05-26</div>
-        <div class="title">
-          <a href="/2026/05/26/%E6%AD%A2%E6%88%98%E4%B9%8B%E6%AE%87/">
-            <span>止战之殇</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="GWF拦截">
-        <div class="time-m-d">05-24</div>
-        <div class="title">
-          <a href="/2026/05/24/GWF%E6%8B%A6%E6%88%AA/">
-            <span>GWF拦截</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="阿里云RAM用户、角色、权限">
-        <div class="time-m-d">05-20</div>
-        <div class="title">
-          <a href="/2026/05/20/%E9%98%BF%E9%87%8C%E4%BA%91RAM%E7%94%A8%E6%88%B7%E3%80%81%E8%A7%92%E8%89%B2%E3%80%81%E6%9D%83%E9%99%90/">
-            <span>阿里云RAM用户、角色、权限</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="OWASP top10">
-        <div class="time-m-d">05-17</div>
-        <div class="title">
-          <a href="/2026/05/17/OWASP-top10/">
-            <span>OWASP top10</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="云安全">
-        <div class="time-m-d">05-14</div>
-        <div class="title">
-          <a href="/2026/05/14/%E4%BA%91%E5%AE%89%E5%85%A8/">
-            <span>云安全</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="不知道写啥了">
-        <div class="time-m-d">05-13</div>
-        <div class="title">
-          <a href="/2026/05/13/%E4%B8%8D%E7%9F%A5%E9%81%93%E5%86%99%E5%95%A5%E4%BA%86/">
-            <span>不知道写啥了</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="如何使用域名邮箱">
-        <div class="time-m-d">04-22</div>
-        <div class="title">
-          <a href="/2026/04/22/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%9F%9F%E5%90%8D%E9%82%AE%E7%AE%B1/">
-            <span>如何使用域名邮箱</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="SRC导论">
-        <div class="time-m-d">03-28</div>
-        <div class="title">
-          <a href="/2026/03/28/SRC%E5%AF%BC%E8%AE%BA/">
-            <span>SRC导论</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -481,6 +486,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + %E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95 + '&url=' + http%3A%2F%2Fexample.com%2F2026%2F09%2F17%2F%25E5%258A%25A0%25E5%25AF%2586%25E7%25AE%2597%25E6%25B3%2595%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2026/09/17/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>
